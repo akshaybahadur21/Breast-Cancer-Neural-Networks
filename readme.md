@@ -17,7 +17,9 @@ For more information, [see](https://en.wikipedia.org/wiki/Artificial_neural_netw
 2) I have used 30 features to classify
 3) Instead of 0=benign and 1=malignant, I have used 1=benign and 2=malignant
 
-### Workign Example
+### Accuracy ~ 92%
+
+### Working Example
 <img src="https://github.com/akshaybahadur21/Breast-Cancer-Neural-Networks/blob/master/cancer_neural.gif">
 
 ### Execution
