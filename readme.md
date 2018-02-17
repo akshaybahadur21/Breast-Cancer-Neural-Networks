@@ -28,3 +28,25 @@ To run the code, type `run cancer.m`
 ```
 run cancer.m
 ```
+
+## Python  Implementation
+
+Used a shallow neural net with one hidden layer and 20 units.
+
+##### I have used a linear learning rate decay for decreasing cost without overshooting.
+
+1) Dataset- UCI-ML
+2) I have used 30 features to classify
+3) Instead of 0=benign and 1=malignant, I have used 1=benign and 2=malignant
+
+### Acuracy ~ 94%
+
+<img src="https://github.com/akshaybahadur21/BreastCancer_Classification/blob/master/bb_nn.gif">
+
+### Execution
+To run the code, type `python B_Cancer_nn.py`
+
+```
+python B_Cancer_nn.py
+```
+
