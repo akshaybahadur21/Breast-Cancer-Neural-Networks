@@ -33,7 +33,7 @@ run cancer.m
 
 ##### Used a shallow neural net with one hidden layer and 20 units.
 
-#### I have used a linear learning rate decay for decreasing cost without overshooting.
+#### I have used a linear learning rate decay for decreasing cost without overshooting the minima.
 
 1) Dataset- UCI-ML
 2) I have used 30 features to classify
@@ -41,7 +41,7 @@ run cancer.m
 
 ### Acuracy ~ 94%
 
-<img src="https://github.com/akshaybahadur21/Breast-Cancer-Neural-Networks/blob/master/bb_nn.gif">
+<img src="https://github.com/akshaybahadur21/Breast-Cancer-Neural-Networks/blob/master/bc_nn.gif">
 
 ### Execution
 To run the code, type `python B_Cancer_nn.py`
