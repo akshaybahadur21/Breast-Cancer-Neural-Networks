@@ -29,9 +29,8 @@ def layers(X, Y):
     :return:
     """
     n_x = X.shape[0]
-    n_h = 5
     n_y = Y.shape[0]
-    return n_x, n_h, n_y
+    return n_x, n_y
 
 
 def initialize(n_x, n_h, n_y):
@@ -134,7 +133,7 @@ def update_params(parameters, grads, alpha):
 def model(X, Y, n_h, num_iters, alpha, print_cost):
     np.random.seed(3)
     n_x = layers(X, Y)[0]
-    n_y = layers(X, Y)[2]
+    n_y = layers(X, Y)[1]
 
     parameters = initialize(n_x, n_h, n_y)
     W1 = parameters['W1']
