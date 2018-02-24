@@ -148,8 +148,8 @@ def model(X, Y, n_h, num_iters, alpha, print_cost):
 
         cost = compute_cost(A2, Y, parameters)
         grads = back_prop(parameters, cache, X, Y)
-        if (i>20000):
-            alpha1=(20000/i)*alpha
+        if (i > 20000):
+            alpha1 = (20000 / i) * alpha
             parameters = update_params(parameters, grads, alpha1)
         else:
             parameters = update_params(parameters, grads, alpha)
@@ -158,7 +158,7 @@ def model(X, Y, n_h, num_iters, alpha, print_cost):
             costs.append(cost)
         if print_cost and i % 1000 == 0:
             print("Cost after iteration %i: %f" % (i, cost))
-            if i<=20000:
+            if i <= 20000:
                 print("Learning rate after iteration %i: %f" % (i, alpha))
             else:
                 print("Learning rate after iteration %i: %f" % (i, alpha1))
@@ -182,14 +182,18 @@ def model(X, Y, n_h, num_iters, alpha, print_cost):
 
     array_length = len(predList[0])
     for i in range(array_length):
-        if predList[0][i] == 1 & tlist[0][i] == 1:
+        if predList[0][i] == 1 and tlist[0][i] == 1:
             truePositive += 1
-        elif predList[0][i] == 0 & tlist[0][i] == 0:
+        elif predList[0][i] == 0 and tlist[0][i] == 0:
             trueNegative += 1
-        elif predList[0][i] == 0 & tlist[0][i] == 1:
+        elif predList[0][i] == 0 and tlist[0][i] == 1:
             falseNegative += 1
-        else:
+        elif predList[0][i] == 1 and tlist[0][i] == 0 :
             falsePositive += 1
+        else:
+            print(predList[0][i])
+            print(tlist[0][i])
+            print("WTF")
     print("On training set:\nTrue Positive:  ", truePositive)
     print("True Negative:  ", trueNegative)
     print("False Negative:  ", falseNegative)
@@ -205,16 +209,21 @@ def model(X, Y, n_h, num_iters, alpha, print_cost):
     predList = predictions.tolist()
     tlist = Y_test.tolist()
 
+    assert (len(predictions[0])== len(tlist[0]))
     array_length = len(predList[0])
     for i in range(array_length):
-        if predList[0][i] == 1 & tlist[0][i] == 1:
+        if predList[0][i] == 1 and tlist[0][i] == 1:
             truePositive += 1
-        elif predList[0][i] == 0 & tlist[0][i] == 0:
+        elif predList[0][i] == 0 and tlist[0][i] == 0:
             trueNegative += 1
-        elif predList[0][i] == 0 & tlist[0][i] == 1:
+        elif predList[0][i] == 0 and tlist[0][i] == 1:
             falseNegative += 1
-        else:
+        elif predList[0][i] == 1 and tlist[0][i] == 0 :
             falsePositive += 1
+        else:
+            print(predList[0][i])
+            print(tlist[0][i])
+            print("WTF")
     print("On Test set:\nTrue Positive:  ", truePositive)
     print("True Negative:  ", trueNegative)
     print("False Negative:  ", falseNegative)
@@ -225,8 +234,6 @@ def model(X, Y, n_h, num_iters, alpha, print_cost):
     plt.xlabel('iterations (per hundreds)')
     plt.title("Learning rate =" + str(alpha))
     plt.show()
-
-
 
     return parameters
 
