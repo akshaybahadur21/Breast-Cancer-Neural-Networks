@@ -173,10 +173,52 @@ def model(X, Y, n_h, num_iters, alpha, print_cost):
     predictions = predict(parameters, X)
     print('Accuracy on training set: %d' % float(
         (np.dot(Y, predictions.T) + np.dot(1 - Y, 1 - predictions.T)) / float(Y.size) * 100) + '%')
+    truePositive = 0
+    trueNegative = 0
+    falseNegative = 0
+    falsePositive = 0
+    predList = predictions.tolist()
+    tlist = Y.tolist()
+
+    array_length = len(predList[0])
+    for i in range(array_length):
+        if predList[0][i] == 1 & tlist[0][i] == 1:
+            truePositive += 1
+        elif predList[0][i] == 0 & tlist[0][i] == 0:
+            trueNegative += 1
+        elif predList[0][i] == 0 & tlist[0][i] == 1:
+            falseNegative += 1
+        else:
+            falsePositive += 1
+    print("On training set:\nTrue Positive:  ", truePositive)
+    print("True Negative:  ", trueNegative)
+    print("False Negative:  ", falseNegative)
+    print("False Positive:  ", falsePositive)
 
     predictions = predict(parameters, X_test)
     print('Accuracy on test set: %d' % float(
         (np.dot(Y_test, predictions.T) + np.dot(1 - Y_test, 1 - predictions.T)) / float(Y_test.size) * 100) + '%')
+    truePositive = 0
+    trueNegative = 0
+    falseNegative = 0
+    falsePositive = 0
+    predList = predictions.tolist()
+    tlist = Y_test.tolist()
+
+    array_length = len(predList[0])
+    for i in range(array_length):
+        if predList[0][i] == 1 & tlist[0][i] == 1:
+            truePositive += 1
+        elif predList[0][i] == 0 & tlist[0][i] == 0:
+            trueNegative += 1
+        elif predList[0][i] == 0 & tlist[0][i] == 1:
+            falseNegative += 1
+        else:
+            falsePositive += 1
+    print("On Test set:\nTrue Positive:  ", truePositive)
+    print("True Negative:  ", trueNegative)
+    print("False Negative:  ", falseNegative)
+    print("False Positive:  ", falsePositive)
 
     plt.plot(costs)
     plt.ylabel('cost')
