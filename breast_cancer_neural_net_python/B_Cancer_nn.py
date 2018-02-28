@@ -171,7 +171,7 @@ def model(X, Y, n_h, num_iters, alpha, print_cost):
     Y_test = Y_test.T
 
     predictions = predict(parameters, X)
-    print('Accuracy on training set: %d' % float(
+    print('Accuracy on training set: %.2f' % float(
         (np.dot(Y, predictions.T) + np.dot(1 - Y, 1 - predictions.T)) / float(Y.size) * 100) + '%')
     truePositive = 0
     trueNegative = 0
@@ -206,7 +206,7 @@ def model(X, Y, n_h, num_iters, alpha, print_cost):
     print("False Positive Rate / Fallout: %.2f" %fpr+str('%'))
 
     predictions = predict(parameters, X_test)
-    print('Accuracy on test set: %d' % float(
+    print('Accuracy on test set: %.2f' % float(
         (np.dot(Y_test, predictions.T) + np.dot(1 - Y_test, 1 - predictions.T)) / float(Y_test.size) * 100) + '%')
     truePositive = 0
     trueNegative = 0
