@@ -194,10 +194,16 @@ def model(X, Y, n_h, num_iters, alpha, print_cost):
             print(predList[0][i])
             print(tlist[0][i])
             print("WTF")
+    tpr = truePositive / (truePositive + falseNegative) * 100
+    fpr = falsePositive / (falsePositive + trueNegative) * 100
+    precision = truePositive / (truePositive + falsePositive) * 100
     print("On training set:\nTrue Positive:  ", truePositive)
     print("True Negative:  ", trueNegative)
     print("False Negative:  ", falseNegative)
     print("False Positive:  ", falsePositive)
+    print("True Positive Rate / Recall: %.2f" % tpr+str('%'))
+    print("Precision: %.2f" %precision+str('%'))
+    print("False Positive Rate / Fallout: %.2f" %fpr+str('%'))
 
     predictions = predict(parameters, X_test)
     print('Accuracy on test set: %d' % float(
@@ -224,10 +230,16 @@ def model(X, Y, n_h, num_iters, alpha, print_cost):
             print(predList[0][i])
             print(tlist[0][i])
             print("WTF")
+    tpr = truePositive / (truePositive + falseNegative) * 100
+    fpr = falsePositive / (falsePositive + trueNegative) * 100
+    precision = truePositive / (truePositive + falsePositive) * 100
     print("On Test set:\nTrue Positive:  ", truePositive)
     print("True Negative:  ", trueNegative)
     print("False Negative:  ", falseNegative)
     print("False Positive:  ", falsePositive)
+    print("True Positive Rate / Recall: %.2f" % tpr+str('%'))
+    print("Precision: %.2f" %precision+str('%'))
+    print("False Positive Rate / Fallout: %.2f" %fpr+str('%'))
 
     plt.plot(costs)
     plt.ylabel('cost')
